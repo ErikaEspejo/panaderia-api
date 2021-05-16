@@ -48,7 +48,7 @@ If it return an error, please install [yarn](https://yarnpkg.com/getting-started
 ## Create .env file
 
 - Configuration Example:
-  - HTTP_HOST -> IP of server, default is 127.0.0.1.
+  - HTTP_HOST -> IP of server.
   - HTTP_PORT -> Node listening port.
   - LOG_ACCESS -> Path where the logs will be stored, don't specify the path, just the file name, default `access.log`.
   - JWTKEY -> Is used by [JWT](https://www.npmjs.com/package/jsonwebtoken) to sign the token.
@@ -63,7 +63,7 @@ Rename .env.example to .env, and set parameters required, please don't include `
 ```yaml
 env:
 
-# This is parameters required.
+# These are the parameters required.
 HTTP_HOST=
 HTTP_PORT=
 LOG_ACCESS=
