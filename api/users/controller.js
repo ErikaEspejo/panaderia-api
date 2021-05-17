@@ -30,7 +30,30 @@ const Op = Sequelize.Op;
         currentPage: page,
       });
     });
-}; */
+};  */
+
+const list = async (req, res) => {
+
+  User.findAll(
+    {
+      where: {
+        //state: true,
+      },
+      attributes: [
+        "identificationNumber",
+        "username",
+        "position",
+        "state",
+        "createdAt",
+        "updatedAt"
+      ]
+    })
+    .then(async (users) => {
+      res.status(200).json({
+        data: users,
+      });
+    })
+}
 
 const create = async (req, res) => {
 
@@ -39,7 +62,7 @@ const create = async (req, res) => {
 
   const findUser = await User.findAll({
     where: {
-      [Op.or]: [{ identificationNumber }, { username }]
+      [Op.or]: [{ identificationNumber }, { username }, { email }]
     }
   });
 
@@ -72,5 +95,6 @@ const create = async (req, res) => {
 
 
 module.exports = {
+  list,
   create
 };
