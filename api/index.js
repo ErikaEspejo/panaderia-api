@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const { localization } = require("./middleware/localization");
 
-//const users = require("./users/router");
+const users = require("./users/router");
 //const tweets = require("./tweets/router");
 
 const { config } = require("../config");
@@ -19,7 +19,7 @@ const logStream = fs.createWriteStream(path.join(__dirname, accessLogDir), {
 router.use(helmet());
 router.use(morgan("combined", { stream: logStream }));
 router.use(localization);
-//router.use("/users", users);
+router.use("/users", users);
 //router.use("/tweets", tweets);
 
 module.exports = router;
