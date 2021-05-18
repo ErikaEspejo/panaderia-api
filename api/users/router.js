@@ -1,5 +1,5 @@
 const express = require("express");
-const { list, create, update } = require("./controller");
+const { list, create, update, remove } = require("./controller");
 const { logger } = require("../middleware/logger");
 //const { validateUser, validateLogin } = require("../middleware/validator");
 const { authenticator } = require("../middleware/authenticator");
@@ -13,7 +13,7 @@ router
   .route("/")
   .post(create) //validateUser
   .get(list)
- // .delete(authenticator, usersAuthorization, remove)
+  .delete(remove)//authenticator, usersAuthorization,
 
 /*router.route("/login").post(validateLogin, login);
 

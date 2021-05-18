@@ -123,9 +123,40 @@ const update = async (req, res) => {
   }
 };
 
+const remove = async (req, res) => {
+  await User.sync();
+  const { identificationNumber } = req.body;
+
+  const userFound = await User.findOne({
+    where: { identificationNumber }
+  });
+
+  if(userFound){
+    try {
+      userFound.destroy()
+      console.log("Borrado correctamente");
+      res
+        .status(200)
+        .json({ message: locale.translate("success.user.onDelete") });
+
+    }
+    catch(err) {
+      res.status(500).json({
+        message: `${locale.translate("errors.user.onDelete")} ${userFind.username
+          }`,
+      });
+    }
+  } else {
+    console.log("usuario no existe!");
+    res
+      .status(400)
+      .json({ message: locale.translate("errors.user.userNotExists") });
+  }
+};
 
 module.exports = {
   list,
   create,
-  update
+  update,
+  remove
 };
