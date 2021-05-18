@@ -35,9 +35,9 @@ const User = sequelize.define('User', {
     allowNull: false,
   },
   state: {
-    type: DataTypes.BOOLEAN,
+    type: DataTypes.STRING,
     allowNull: false,
-    defaultValue: true,
+    defaultValue: "activo",
   },
   position: {
     type: DataTypes.STRING,

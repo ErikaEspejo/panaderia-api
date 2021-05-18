@@ -8,30 +8,6 @@ const User = require("./model");
 
 const Op = Sequelize.Op;
 
-
-/* const list = async (req, res) => {
-  const { page = 1, limit = 10 } = req.query;
-  const skip = (page - 1) * limit;
-
-  User.find({ active: true }, ["name", "username", "createdAt", "updatedAt"])
-    .limit(Number(limit))
-    .skip(skip)
-    .sort({ createdAt: -1 })
-    .then(async (users) => {
-      const total = await User.estimatedDocumentCount();
-      const totalPages = Math.ceil(total / limit);
-      const hasMore = page < totalPages;
-
-      res.status(200).json({
-        hasMore,
-        totalPages,
-        total,
-        data: users,
-        currentPage: page,
-      });
-    });
-};  */
-
 const list = async (req, res) => {
 
   User.findAll(
@@ -40,6 +16,8 @@ const list = async (req, res) => {
         //state: true,
       },
       attributes: [
+        "name",
+        "lastname",
         "identificationNumber",
         "username",
         "position",
@@ -60,13 +38,13 @@ const create = async (req, res) => {
   await User.sync();
   const { identificationNumber, name, lastName, username, state, position, email, password } = req.body;
 
-  const findUser = await User.findAll({
+  const findUser = await User.findOne({
     where: {
       [Op.or]: [{ identificationNumber }, { username }, { email }]
     }
   });
 
-  if (findUser.length > 0) {
+  if (findUser) {
     res
       .status(500)
       .json({ message: locale.translate("errors.user.userExists") });
@@ -93,8 +71,61 @@ const create = async (req, res) => {
   })
 };
 
+const update = async (req, res) => {
+  await User.sync();
+  const identificationNumber = req.params.identificationNumber;
+  const { name, lastName, username, state, email, password, position } = req.body;
+
+  if (name && lastName && username && email && password && position && state) {
+    const user = {
+      name,
+      lastName,
+      username,
+      state,
+      email,
+      password,
+      position
+    };
+
+    const userFound = await User.findOne({
+      where: { identificationNumber }
+    });
+
+    if (userFound) {
+      await userFound.update(
+        {
+          name: user.name,
+          lastName: user.lastName,
+          state: user.state,
+          email: user.email,
+          username: user.username,
+          password: user.password,
+          position: user.position,
+        }
+      ).then(() =>
+        res.status(204).json({
+          message: locale.translate("success.user.onUpdate"),
+        })
+      ).catch(err =>
+        res.status(500).json({
+          message: `${locale.translate("errors.user.onUpdate")} ${identificationNumber}`,
+        })
+      )
+
+    } else {
+      res.status(500).json({
+        message: `${locale.translate("errors.user.userNotExists")} ${identificationNumber}`,
+      });
+    }
+
+  } else {
+    res.status(500).json({ message: locale.translate("errors.invalidData") });
+  }
+};
+
 
 module.exports = {
   list,
-  create
+  create,
+  update
 };

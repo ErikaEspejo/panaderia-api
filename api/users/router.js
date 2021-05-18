@@ -1,5 +1,5 @@
 const express = require("express");
-const { list, create } = require("./controller");
+const { list, create, update } = require("./controller");
 const { logger } = require("../middleware/logger");
 //const { validateUser, validateLogin } = require("../middleware/validator");
 const { authenticator } = require("../middleware/authenticator");
@@ -18,9 +18,9 @@ router
 /*router.route("/login").post(validateLogin, login);
 
 router.route("/logout").get(logout);
-
+*/
 router
-  .route("/:id") //
-  .put(authenticator, usersAuthorization, validateUser, update); */
+  .route("/:identificationNumber") //
+  .put(update); //authenticator, usersAuthorization, validateUser,
 
 module.exports = router;
