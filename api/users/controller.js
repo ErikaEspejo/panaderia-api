@@ -154,9 +154,32 @@ const remove = async (req, res) => {
   }
 };
 
+const getUser = async (req, res) => {
+  const { identificationNumber } = req.params;
+  await User.findOne({
+    where: { identificationNumber },
+    attributes: [
+      "name",
+      "lastname",
+      "identificationNumber",
+      "username",
+      "position",
+      "state",
+      "createdAt",
+      "updatedAt"
+    ]
+  })
+  .then(async (user) => {
+    res.status(200).json({
+      data: user,
+    });
+  })
+}
+
 module.exports = {
   list,
   create,
   update,
-  remove
+  remove,
+  getUser
 };
