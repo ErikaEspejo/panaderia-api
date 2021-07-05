@@ -34,6 +34,6 @@ router.route("/logout").get(logout);
 router
   .route("/:identificationNumber")
   .put(authenticator, usersAuthorization, validateUserUpdated, update)
-  .get(getUser);
+  .get(authenticator, getUser);
 
 module.exports = router;
