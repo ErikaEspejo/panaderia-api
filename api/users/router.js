@@ -1,7 +1,15 @@
 const express = require("express");
-const { list, create, update, remove, getUser } = require("./controller");
+const {
+  list,
+  create,
+  update,
+  remove,
+  getUser,
+  login,
+  logout,
+} = require("./controller");
 const { logger } = require("../middleware/logger");
-//const { validateUser, validateLogin } = require("../middleware/validator");
+const { validateLogin } = require("../middleware/validator");
 const { authenticator } = require("../middleware/authenticator");
 //const { usersAuthorization } = require("../middleware/authorization");
 
@@ -12,16 +20,16 @@ router.use(logger);
 router
   .route("/")
   .post(create) //validateUser
-  .get(list)
-  .delete(remove)//authenticator, usersAuthorization,
+  .get(authenticator, list)
+  .delete(authenticator, remove); // usersAuthorization,
 
-  /*router.route("/login").post(validateLogin, login);
+router.route("/login").post(validateLogin, login);
 
-  router.route("/logout").get(logout);
-  */
- router
- .route("/:identificationNumber") //
- .put(update) //authenticator, usersAuthorization, validateUser,
- .get(getUser)
+router.route("/logout").get(logout);
+
+router
+  .route("/:identificationNumber") //
+  .put(authenticator, update) // usersAuthorization, validateUser,
+  .get(getUser);
 
 module.exports = router;
