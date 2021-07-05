@@ -28,6 +28,13 @@ const dictionaryESCO = {
       onUpdate: "error al actualizar el hallazgo",
       notExists: "el hallazgo no existe",
     },
+    costs: {
+      onDelete: "error al intentar eliminar el costo",
+      exists: "el costo ya existe",
+      onCreate: "error al crear el costo",
+      onUpdate: "error al actualizar el costo",
+      notExists: "el hallazgo no costo",
+    },
   },
   success: {
     user: {
@@ -40,6 +47,11 @@ const dictionaryESCO = {
       onCreate: "hallazgo creado correctamente",
       onUpdate: "hallazgo actualizado correctamente",
       onDelete: "hallazgo eliminado correctamente",
+    },
+    costs: {
+      onCreate: "costo creado correctamente",
+      onUpdate: "costo actualizado correctamente",
+      onDelete: "costo eliminado correctamente",
     },
   },
 };

@@ -7,6 +7,7 @@ const { localization } = require("./middleware/localization");
 
 const users = require("./users/router");
 const quality = require("./quality/router");
+const costs = require("./costs/router");
 
 const { config } = require("../config");
 
@@ -21,5 +22,6 @@ router.use(morgan("combined", { stream: logStream }));
 router.use(localization);
 router.use("/users", users);
 router.use("/quality", quality);
+router.use("/costs", costs);
 
 module.exports = router;

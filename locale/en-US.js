@@ -29,6 +29,13 @@ const dictionaryENUS = {
       onUpdate: "error while updating finding",
       notExists: "finding doesn't exists",
     },
+    costs: {
+      onDelete: "error while deleted cost",
+      exists: "cost already exists",
+      onCreate: "error while creating cost",
+      onUpdate: "error while updating cost",
+      notExists: "cost doesn't exists",
+    },
   },
   success: {
     user: {
@@ -41,6 +48,11 @@ const dictionaryENUS = {
       onCreate: "finding created successfully",
       onUpdate: "finding updated successfully",
       onDelete: "finding removed successfully",
+    },
+    costs: {
+      onCreate: "cost created successfully",
+      onUpdate: "cost updated successfully",
+      onDelete: "cost removed successfully",
     },
   },
 };
