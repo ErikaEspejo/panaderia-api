@@ -87,6 +87,9 @@ const update = async (req, res) => {
   const { name, lastName, username, state, email, password, position } =
     req.body;
 
+  const salt = bcrypt.genSaltSync(config.saltRounds);
+  const passwordHash = bcrypt.hashSync(password, salt);
+
   if (name && lastName && username && email && password && position && state) {
     const user = {
       name,
@@ -94,7 +97,7 @@ const update = async (req, res) => {
       username,
       state,
       email,
-      password,
+      password: passwordHash,
       position,
     };
 
@@ -158,6 +161,7 @@ const remove = async (req, res) => {
           userFind.username
         }`,
       });
+      console.log("error al eliminar");
     }
   } else {
     console.log("usuario no existe!");
@@ -193,13 +197,12 @@ const login = async (req, res) => {
 
   const userFound = await User.findOne({
     where: { username },
-    attributes: ["password", "username"],
+    attributes: ["password", "username", "identificationNumber"],
   });
   if (userFound) {
     // eslint-disable-next-line no-underscore-dangle
     const userId = userFound.identificationNumber;
-    console.log(password);
-    console.log(userFound.password);
+
     const result = await bcrypt.compare(password, userFound.password);
     if (result) {
       const token = jwt.sign({ userId }, config.jwtKey);
