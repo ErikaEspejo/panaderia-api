@@ -6,7 +6,7 @@ const path = require("path");
 const { localization } = require("./middleware/localization");
 
 const users = require("./users/router");
-//const tweets = require("./tweets/router");
+const quality = require("./quality/router");
 
 const { config } = require("../config");
 
@@ -20,6 +20,6 @@ router.use(helmet());
 router.use(morgan("combined", { stream: logStream }));
 router.use(localization);
 router.use("/users", users);
-//router.use("/tweets", tweets);
+router.use("/quality", quality);
 
 module.exports = router;

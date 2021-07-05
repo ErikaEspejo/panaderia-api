@@ -21,8 +21,12 @@ const dictionaryESCO = {
       onCreate: "error al intentar crear el usuario",
       onDelete: "error al intentar eliminar el usuario",
     },
-    tweet: {
-      onDelete: "error al intentar eliminar el tweet",
+    quality: {
+      onDelete: "error al intentar eliminar el hallazgo",
+      exists: "el hallazgo ya existe",
+      onCreate: "error al crear el hallazgo",
+      onUpdate: "error al actualizar el hallazgo",
+      notExists: "el hallazgo no existe",
     },
   },
   success: {
@@ -32,10 +36,10 @@ const dictionaryESCO = {
       onUpdate: "usuario actualizado correctamente",
       userDeleted: "usuario eliminado correctamente",
     },
-    tweet: {
-      onCreate: "tweet creado correctamente",
-      onUpdate: "tweet actualizado correctamente",
-      tweetDeleted: "tweet eliminado correctamente",
+    quality: {
+      onCreate: "hallazgo creado correctamente",
+      onUpdate: "hallazgo actualizado correctamente",
+      onDelete: "hallazgo eliminado correctamente",
     },
   },
 };

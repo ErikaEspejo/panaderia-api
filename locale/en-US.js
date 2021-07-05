@@ -22,8 +22,12 @@ const dictionaryENUS = {
       onCreate: "error while creating user",
       onDelete: "error while deleted user",
     },
-    tweet: {
-      onDelete: "error while deleted tweet",
+    quality: {
+      onDelete: "error while deleted finding",
+      exists: "finding already exists",
+      onCreate: "error while creating finding",
+      onUpdate: "error while updating finding",
+      notExists: "finding doesn't exists",
     },
   },
   success: {
@@ -33,10 +37,10 @@ const dictionaryENUS = {
       onUpdate: "user updated successfully",
       onDelete: "user removed successfully",
     },
-    tweet: {
-      onCreate: "tweet created successfully",
-      onUpdate: "tweet updated successfully",
-      tweetDeleted: "tweet removed successfully",
+    quality: {
+      onCreate: "finding created successfully",
+      onUpdate: "finding updated successfully",
+      onDelete: "finding removed successfully",
     },
   },
 };
