@@ -14,6 +14,7 @@ const list = async (req, res) => {
       //state: true,
     },
     attributes: [
+      "idType",
       "name",
       "lastname",
       "identificationNumber",
@@ -33,6 +34,7 @@ const list = async (req, res) => {
 const create = async (req, res) => {
   await User.sync();
   const {
+    idType,
     identificationNumber,
     name,
     lastName,
@@ -60,6 +62,7 @@ const create = async (req, res) => {
   }
 
   const user = {
+    idType,
     identificationNumber,
     name,
     lastName,
@@ -84,14 +87,18 @@ const create = async (req, res) => {
 const update = async (req, res) => {
   await User.sync();
   const identificationNumber = req.params.identificationNumber;
-  const { name, lastName, username, state, email, password, position } =
+  const { idType, name, lastName, username, state, email, password, position } =
     req.body;
 
   const salt = bcrypt.genSaltSync(config.saltRounds);
   const passwordHash = bcrypt.hashSync(password, salt);
 
-  if (name && lastName && username && email && password && position && state) {
+  if (
+    (idType,
+    name && lastName && username && email && password && position && state)
+  ) {
     const user = {
+      idType,
       name,
       lastName,
       username,
@@ -108,6 +115,7 @@ const update = async (req, res) => {
     if (userFound) {
       await userFound
         .update({
+          idType: user.idType,
           name: user.name,
           lastName: user.lastName,
           state: user.state,
@@ -176,6 +184,7 @@ const getUser = async (req, res) => {
   await User.findOne({
     where: { identificationNumber },
     attributes: [
+      "idType",
       "name",
       "lastname",
       "identificationNumber",
@@ -186,9 +195,15 @@ const getUser = async (req, res) => {
       "updatedAt",
     ],
   }).then(async (user) => {
-    res.status(200).json({
-      data: user,
-    });
+    if (user) {
+      res.status(200).json({
+        data: user,
+      });
+    } else {
+      res
+        .status(400)
+        .json({ message: locale.translate("errors.user.userNotExists") });
+    }
   });
 };
 

@@ -13,6 +13,7 @@ const dictionaryENUS = {
       passwordsDontMatch: "passwords don't match",
       invalidPassword: "invalid password",
       invalidId: "invalid identification",
+      invalidIdType: "invalid identification type",
     },
     user: {
       userExists: "user already exists",

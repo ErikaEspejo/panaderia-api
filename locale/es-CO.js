@@ -12,7 +12,7 @@ const dictionaryESCO = {
       invalidEmail: "email inválido",
       passwordsDontMatch: "las contraseñas no coinciden",
       invalidPassword: "contraseña invalida",
-      invalidId: "número de idenficación inválido",
+      invalidIdType: "tipo de idenficación inválido",
     },
     user: {
       userExists: "usuario actualmente existe",

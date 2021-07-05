@@ -21,6 +21,7 @@ const validateLogin = (req, res, next) => {
 
 const validateNewUser = (req, res, next) => {
   const {
+    idType,
     identificationNumber,
     email,
     username,
@@ -34,8 +35,10 @@ const validateNewUser = (req, res, next) => {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
   );
   const regExpId = new RegExp(/^[a-zA-Z0-9_]*$/);
+  const regExpIdType = new RegExp(/^(C.C.|C.E.|P.A.|T.I.)$/);
 
   if (
+    idType &&
     identificationNumber &&
     email &&
     username &&
@@ -45,7 +48,6 @@ const validateNewUser = (req, res, next) => {
     if (username.length < 6) {
       errors.push(locale.translate("errors.validate.invalidUsername"));
     }
-
     if (!regExpEmail.test(email)) {
       errors.push(locale.translate("errors.validate.invalidEmail"));
     }
@@ -57,6 +59,9 @@ const validateNewUser = (req, res, next) => {
     }
     if (!regExpId.test(identificationNumber)) {
       errors.push(locale.translate("errors.validate.invalidId"));
+    }
+    if (!regExpIdType.test(idType)) {
+      errors.push(locale.translate("errors.validate.invalidIdType"));
     }
   } else {
     errors.push(locale.translate("errors.validate.emptyData"));
@@ -70,7 +75,7 @@ const validateNewUser = (req, res, next) => {
 };
 
 const validateUserUpdated = (req, res, next) => {
-  const { email, username, password, position, state, name, lastname } =
+  const { idType, email, username, password, position, state, name, lastname } =
     req.body;
 
   const errors = [];
@@ -78,8 +83,9 @@ const validateUserUpdated = (req, res, next) => {
   const regExpPassword = new RegExp(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
   );
+  const regExpIdType = new RegExp(/^(C.C.|C.E.|P.A.|T.I.)$/);
 
-  if (email && username && password) {
+  if (idType && email && username && password) {
     if (username.length < 6) {
       errors.push(locale.translate("errors.validate.invalidUsername"));
     }
@@ -90,10 +96,12 @@ const validateUserUpdated = (req, res, next) => {
     if (!regExpPassword.test(password)) {
       errors.push(locale.translate("errors.validate.invalidPassword"));
     }
+    if (!regExpIdType.test(idType)) {
+      errors.push(locale.translate("errors.validate.invalidIdType"));
+    }
   } else {
     errors.push(locale.translate("errors.validate.emptyData"));
   }
-
   if (errors.length === 0) {
     next();
   } else {
