@@ -1,4 +1,4 @@
-const { locale } = require("../../locale");
+const { locale } = require("../../../locale");
 const Costs = require("./model");
 
 const list = async (req, res) => {

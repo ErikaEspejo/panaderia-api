@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
 const { Sequelize } = require("sequelize");
 const bcrypt = require("bcrypt");
-const { locale } = require("../../locale");
-const { config } = require("../../config");
+const { locale } = require("../../../locale");
+const { config } = require("../../../config");
 
 const User = require("./model");
 

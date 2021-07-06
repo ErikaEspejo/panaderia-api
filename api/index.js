@@ -5,9 +5,10 @@ const fs = require("fs");
 const path = require("path");
 const { localization } = require("./middleware/localization");
 
-const users = require("./users/router");
-const quality = require("./quality/router");
-const costs = require("./costs/router");
+const users = require("./modules/users/router");
+const quality = require("./modules/quality/router");
+const costs = require("./modules/costs/router");
+const provider = require("./modules/providers/router");
 
 const { config } = require("../config");
 
@@ -23,5 +24,6 @@ router.use(localization);
 router.use("/users", users);
 router.use("/quality", quality);
 router.use("/costs", costs);
+router.use("/providers", provider);
 
 module.exports = router;

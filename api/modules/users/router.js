@@ -8,14 +8,14 @@ const {
   login,
   logout,
 } = require("./controller");
-const { logger } = require("../middleware/logger");
+const { logger } = require("../../middleware/logger");
 const {
   validateLogin,
   validateNewUser,
   validateUserUpdated,
-} = require("../middleware/validator");
-const { authenticator } = require("../middleware/authenticator");
-const { usersAuthorization } = require("../middleware/authorization");
+} = require("../../middleware/validator");
+const { authenticator } = require("../../middleware/authenticator");
+const { usersAuthorization } = require("../../middleware/authorization");
 
 const router = express.Router();
 

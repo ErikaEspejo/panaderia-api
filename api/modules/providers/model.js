@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
-const { config } = require("../../config");
+const { config } = require("../../../config");
 
 const sequelize = new Sequelize(
   config.database.db,
@@ -13,38 +13,49 @@ const sequelize = new Sequelize(
   }
 );
 
-const Quality = sequelize.define(
-  "Quality",
+const Providers = sequelize.define(
+  "Providers",
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    findingType: {
+    nit: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    finding: {
+    providerName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    actions: {
+    providerPhone: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    providerWeb: {
+      type: DataTypes.STRING,
+    },
+    address: {
+      type: DataTypes.STRING,
+    },
+    contactName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    accomplishment: {
-      type: DataTypes.BOOLEAN,
+    contactPhone: {
+      type: DataTypes.INTEGER,
+    },
+    contactEmail: {
+      type: DataTypes.STRING,
+    },
+    supplies: {
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: false,
     },
   },
   {
-    tableName: "Quality",
+    tableName: "Providers",
   },
   {
     timestamps: true,
@@ -52,4 +63,4 @@ const Quality = sequelize.define(
   { initialAutoIncrement: 0 }
 );
 
-module.exports = Quality;
+module.exports = Providers;

@@ -36,6 +36,13 @@ const dictionaryENUS = {
       onUpdate: "error while updating cost",
       notExists: "cost doesn't exists",
     },
+    provider: {
+      onDelete: "error while deleted provider",
+      exists: "provider already exists",
+      onCreate: "error while creating provider",
+      onUpdate: "error while updating provider",
+      notExists: "provider doesn't exists",
+    },
   },
   success: {
     user: {
@@ -53,6 +60,11 @@ const dictionaryENUS = {
       onCreate: "cost created successfully",
       onUpdate: "cost updated successfully",
       onDelete: "cost removed successfully",
+    },
+    provider: {
+      onCreate: "provider created successfully",
+      onUpdate: "provider updated successfully",
+      onDelete: "provider removed successfully",
     },
   },
 };

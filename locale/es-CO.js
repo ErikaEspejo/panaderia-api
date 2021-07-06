@@ -35,6 +35,13 @@ const dictionaryESCO = {
       onUpdate: "error al actualizar el costo",
       notExists: "el hallazgo no costo",
     },
+    provider: {
+      onDelete: "error al intentar eliminar el proveedor",
+      exists: "el proveedor ya existe",
+      onCreate: "error al crear el proveedor",
+      onUpdate: "error al actualizar el proveedor",
+      notExists: "el hallazgo no proveedor",
+    },
   },
   success: {
     user: {
@@ -52,6 +59,11 @@ const dictionaryESCO = {
       onCreate: "costo creado correctamente",
       onUpdate: "costo actualizado correctamente",
       onDelete: "costo eliminado correctamente",
+    },
+    provider: {
+      onCreate: "proveedor creado correctamente",
+      onUpdate: "proveedor actualizado correctamente",
+      onDelete: "proveedor eliminado correctamente",
     },
   },
 };

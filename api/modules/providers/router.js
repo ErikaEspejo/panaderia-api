@@ -1,7 +1,7 @@
 const express = require("express");
 const { list, create, update, remove, getOne } = require("./controller");
-const { logger } = require("../middleware/logger");
-const { authenticator } = require("../middleware/authenticator");
+const { logger } = require("../../middleware/logger");
+const { authenticator } = require("../../middleware/authenticator");
 
 const router = express.Router();
 

@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require("sequelize");
 
-const { config } = require("../../config");
+const { config } = require("../../../config");
 
 const sequelize = new Sequelize(
   config.database.db,
@@ -13,8 +13,8 @@ const sequelize = new Sequelize(
   }
 );
 
-const Costs = sequelize.define(
-  "Costs",
+const Quality = sequelize.define(
+  "Quality",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -25,21 +25,26 @@ const Costs = sequelize.define(
       type: DataTypes.DATE,
       allowNull: false,
     },
-    costName: {
+    findingType: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    costType: {
+    finding: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    costValue: {
-      type: DataTypes.DOUBLE(20, 2),
+    actions: {
+      type: DataTypes.STRING,
       allowNull: false,
+    },
+    accomplishment: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
     },
   },
   {
-    tableName: "Costs",
+    tableName: "Quality",
   },
   {
     timestamps: true,
@@ -47,4 +52,4 @@ const Costs = sequelize.define(
   { initialAutoIncrement: 0 }
 );
 
-module.exports = Costs;
+module.exports = Quality;
