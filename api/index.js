@@ -9,6 +9,7 @@ const users = require("./modules/users/router");
 const quality = require("./modules/quality/router");
 const costs = require("./modules/costs/router");
 const provider = require("./modules/providers/router");
+const products = require("./modules/products/router");
 
 const { config } = require("../config");
 
@@ -25,5 +26,6 @@ router.use("/users", users);
 router.use("/quality", quality);
 router.use("/costs", costs);
 router.use("/providers", provider);
+router.use("/products", products);
 
 module.exports = router;
