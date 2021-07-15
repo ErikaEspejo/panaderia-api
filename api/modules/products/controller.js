@@ -9,6 +9,7 @@ const list = async (req, res) => {
       "cost",
       "supplies",
       "category",
+      "quantity",
       "createdAt",
       "updatedAt",
     ],
@@ -28,6 +29,7 @@ const create = async (req, res) => {
     cost,
     supplies,
     category,
+    quantity: 0,
   };
 
   await Products.create(newProduct)
@@ -35,6 +37,7 @@ const create = async (req, res) => {
       res.status(200).json(created);
     })
     .catch((err) => {
+      console.log(err);
       res
         .status(400)
         .json({ message: locale.translate("errors.Products.onCreate") });
@@ -125,6 +128,7 @@ const getOne = async (req, res) => {
       "cost",
       "supplies",
       "category",
+      "quantity",
       "createdAt",
       "updatedAt",
     ],
