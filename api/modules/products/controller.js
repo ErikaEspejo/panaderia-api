@@ -40,7 +40,7 @@ const create = async (req, res) => {
       console.log(err);
       res
         .status(400)
-        .json({ message: locale.translate("errors.Products.onCreate") });
+        .json({ message: locale.translate("errors.products.onCreate") });
     });
 };
 
@@ -71,17 +71,17 @@ const update = async (req, res) => {
         })
         .then(() =>
           res.status(204).json({
-            message: locale.translate("success.Products.onUpdate"),
+            message: locale.translate("success.products.onUpdate"),
           })
         )
         .catch((err) =>
           res.status(500).json({
-            message: `${locale.translate("errors.Products.onUpdate")} ${id}`,
+            message: `${locale.translate("errors.products.onUpdate")} ${id}`,
           })
         );
     } else {
       res.status(500).json({
-        message: `${locale.translate("errors.Products.notExists")} ${id}`,
+        message: `${locale.translate("errors.products.notExists")} ${id}`,
       });
     }
   } else {
@@ -103,18 +103,18 @@ const remove = async (req, res) => {
       console.log("Borrado correctamente");
       res
         .status(200)
-        .json({ message: locale.translate("success.Products.onDelete") });
+        .json({ message: locale.translate("success.products.onDelete") });
     } catch (err) {
       res.status(500).json({
-        message: `${locale.translate("errors.Products.onDelete")} ${found.id}`,
+        message: `${locale.translate("errors.products.onDelete")} ${found.id}`,
       });
       console.log("error al eliminar");
     }
   } else {
-    console.log("costo no existe!");
+    console.log("producto no existe!");
     res
       .status(400)
-      .json({ message: locale.translate("errors.Products.notExists") });
+      .json({ message: locale.translate("errors.products.notExists") });
   }
 };
 
@@ -140,7 +140,7 @@ const getOne = async (req, res) => {
     } else {
       res
         .status(400)
-        .json({ message: locale.translate("errors.Products.notExists") });
+        .json({ message: locale.translate("errors.products.notExists") });
     }
   });
 };

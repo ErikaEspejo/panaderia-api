@@ -131,14 +131,12 @@ const create = async (req, res) => {
         })
         .catch((err) =>
           res.status(500).json({
-            message: `${locale.translate("errors.production.onUpdate")} ${
-              el.id
-            }`,
+            message: `${locale.translate("errors.sales.onUpdate")} ${el.id}`,
           })
         );
     } else {
       res.status(500).json({
-        message: `${locale.translate("errors.production.notExists")} ${el.id}`,
+        message: `${locale.translate("errors.sales.notExists")} ${el.id}`,
       });
     }
   });
@@ -150,7 +148,7 @@ const create = async (req, res) => {
       console.log(err);
       res
         .status(400)
-        .json({ message: locale.translate("errors.production.onCreate") });
+        .json({ message: locale.translate("errors.sales.onCreate") });
     });
 };
 
@@ -179,14 +177,12 @@ const remove = async (req, res) => {
           })
           .catch((err) =>
             res.status(500).json({
-              message: `${locale.translate("errors.production.onUpdate")} ${
-                el.id
-              }`,
+              message: `${locale.translate("errors.sales.onUpdate")} ${el.id}`,
             })
           );
       } else {
         res.status(500).json({
-          message: `${locale.translate("errors.products.notExists")} ${el.id}`,
+          message: `${locale.translate("errors.sales.notExists")} ${el.id}`,
         });
       }
     });
@@ -195,18 +191,18 @@ const remove = async (req, res) => {
       console.log("Borrado correctamente");
       res
         .status(200)
-        .json({ message: locale.translate("success.products.onDelete") });
+        .json({ message: locale.translate("success.sales.onDelete") });
     } catch (err) {
       res.status(500).json({
-        message: `${locale.translate("errors.products.onDelete")} ${found.id}`,
+        message: `${locale.translate("errors.sales.onDelete")} ${found.id}`,
       });
       console.log("error al eliminar");
     }
   } else {
-    console.log("produccion no existe!");
+    console.log("la venta no existe!");
     res
       .status(400)
-      .json({ message: locale.translate("errors.production.notExists") });
+      .json({ message: locale.translate("errors.sales.notExists") });
   }
 };
 
@@ -283,7 +279,7 @@ const getOne = async (req, res) => {
     } else {
       res
         .status(400)
-        .json({ message: locale.translate("errors.supplies.notExists") });
+        .json({ message: locale.translate("errors.sales.notExists") });
     }
   });
 };

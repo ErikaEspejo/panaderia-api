@@ -154,7 +154,9 @@ const remove = async (req, res) => {
           );
       } else {
         res.status(500).json({
-          message: `${locale.translate("errors.products.notExists")} ${el.id}`,
+          message: `${locale.translate("errors.production.notExists")} ${
+            el.id
+          }`,
         });
       }
     });
@@ -163,10 +165,12 @@ const remove = async (req, res) => {
       console.log("Borrado correctamente");
       res
         .status(200)
-        .json({ message: locale.translate("success.products.onDelete") });
+        .json({ message: locale.translate("success.production.onDelete") });
     } catch (err) {
       res.status(500).json({
-        message: `${locale.translate("errors.products.onDelete")} ${found.id}`,
+        message: `${locale.translate("errors.production.onDelete")} ${
+          found.id
+        }`,
       });
       console.log("error al eliminar");
     }
@@ -233,7 +237,7 @@ const getOne = async (req, res) => {
     } else {
       res
         .status(400)
-        .json({ message: locale.translate("errors.supplies.notExists") });
+        .json({ message: locale.translate("errors.production.notExists") });
     }
   });
 };

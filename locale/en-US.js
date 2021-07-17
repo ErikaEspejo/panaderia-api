@@ -36,12 +36,47 @@ const dictionaryENUS = {
       onUpdate: "error while updating cost",
       notExists: "cost doesn't exists",
     },
+    production: {
+      onDelete: "error while deleted production",
+      exists: "production already exists",
+      onCreate: "error while creating production",
+      onUpdate: "error while updating production",
+      notExists: "production doesn't exists",
+    },
     provider: {
       onDelete: "error while deleted provider",
       exists: "provider already exists",
       onCreate: "error while creating provider",
       onUpdate: "error while updating provider",
       notExists: "provider doesn't exists",
+    },
+    products: {
+      onDelete: "error while deleted product",
+      exists: "product already exists",
+      onCreate: "error while creating product",
+      onUpdate: "error while updating product",
+      notExists: "product doesn't exists",
+    },
+    sales: {
+      onDelete: "error while deleted sale",
+      exists: "sale already exists",
+      onCreate: "error while creating sale",
+      onUpdate: "error while updating sale",
+      notExists: "sale doesn't exists",
+    },
+    supplies: {
+      onDelete: "error while deleted supply",
+      exists: "supply already exists",
+      onCreate: "error while creating supply",
+      onUpdate: "error while updating supply",
+      notExists: "supply doesn't exists",
+    },
+    workers: {
+      onDelete: "error while deleted worker",
+      exists: "worker already exists",
+      onCreate: "error while creating worker",
+      onUpdate: "error while updating worker",
+      notExists: "worker doesn't exists",
     },
   },
   success: {
@@ -61,10 +96,35 @@ const dictionaryENUS = {
       onUpdate: "cost updated successfully",
       onDelete: "cost removed successfully",
     },
+    production: {
+      onCreate: "production created successfully",
+      onUpdate: "production updated successfully",
+      onDelete: "production removed successfully",
+    },
     provider: {
       onCreate: "provider created successfully",
       onUpdate: "provider updated successfully",
       onDelete: "provider removed successfully",
+    },
+    products: {
+      onCreate: "product created successfully",
+      onUpdate: "product updated successfully",
+      onDelete: "product removed successfully",
+    },
+    sales: {
+      onCreate: "sale created successfully",
+      onUpdate: "sale updated successfully",
+      onDelete: "sale removed successfully",
+    },
+    supplies: {
+      onCreate: "supply created successfully",
+      onUpdate: "supply updated successfully",
+      onDelete: "supply removed successfully",
+    },
+    workers: {
+      onCreate: "worker created successfully",
+      onUpdate: "worker updated successfully",
+      onDelete: "worker removed successfully",
     },
   },
 };

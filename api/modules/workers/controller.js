@@ -107,7 +107,7 @@ const create = async (req, res) => {
       console.error(err);
       res
         .status(400)
-        .json({ message: locale.translate("errors.Workers.onCreate") });
+        .json({ message: locale.translate("errors.workers.onCreate") });
     });
 };
 
@@ -212,18 +212,18 @@ const update = async (req, res) => {
         })
         .then(() =>
           res.status(204).json({
-            message: locale.translate("success.Workers.onUpdate"),
+            message: locale.translate("success.workers.onUpdate"),
           })
         )
         .catch((err) => {
           console.log(err);
           res.status(500).json({
-            message: `${locale.translate("errors.Workers.onUpdate")} ${id}`,
+            message: `${locale.translate("errors.workers.onUpdate")} ${id}`,
           });
         });
     } else {
       res.status(500).json({
-        message: `${locale.translate("errors.Workers.notExists")} ${id}`,
+        message: `${locale.translate("errors.workers.notExists")} ${id}`,
       });
     }
   } else {
@@ -245,10 +245,10 @@ const remove = async (req, res) => {
       console.log("Borrado correctamente");
       res
         .status(200)
-        .json({ message: locale.translate("success.Workers.onDelete") });
+        .json({ message: locale.translate("success.workers.onDelete") });
     } catch (err) {
       res.status(500).json({
-        message: `${locale.translate("errors.Workers.onDelete")} ${found.id}`,
+        message: `${locale.translate("errors.workers.onDelete")} ${found.id}`,
       });
       console.log("error al eliminar");
     }
@@ -256,7 +256,7 @@ const remove = async (req, res) => {
     console.log("costo no existe!");
     res
       .status(400)
-      .json({ message: locale.translate("errors.Workers.notExists") });
+      .json({ message: locale.translate("errors.workers.notExists") });
   }
 };
 
@@ -297,7 +297,7 @@ const getOne = async (req, res) => {
     } else {
       res
         .status(400)
-        .json({ message: locale.translate("errors.Workers.notExists") });
+        .json({ message: locale.translate("errors.workers.notExists") });
     }
   });
 };

@@ -111,10 +111,10 @@ const remove = async (req, res) => {
       console.log("error al eliminar");
     }
   } else {
-    console.log("hallazgo no existe!");
+    console.log("insumo no existe!");
     res
       .status(400)
-      .json({ message: locale.translate("errors.quality.notExists") });
+      .json({ message: locale.translate("errors.supplies.notExists") });
   }
 };
 
