@@ -13,6 +13,7 @@ const products = require("./modules/products/router");
 const workers = require("./modules/workers/router");
 const supplies = require("./modules/supplies/router");
 const production = require("./modules/production/router");
+const sales = require("./modules/sales/router");
 
 const { config } = require("../config");
 
@@ -33,5 +34,6 @@ router.use("/products", products);
 router.use("/workers", workers);
 router.use("/supplies", supplies);
 router.use("/production", production);
+router.use("/sales", sales);
 
 module.exports = router;
