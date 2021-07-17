@@ -58,8 +58,6 @@ const Supplies = sequelize.define(
 );
 
 Supplies.belongsTo(Providers);
-Providers.hasMany(Supplies, {
-  as: "provider",
-});
+Providers.hasMany(Supplies);
 
 module.exports = Supplies;
