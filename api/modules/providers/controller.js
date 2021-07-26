@@ -78,11 +78,9 @@ const update = async (req, res) => {
   if (
     providerName &&
     providerPhone &&
-    providerWeb &&
     address &&
     contactName &&
     contactPhone &&
-    contactEmail &&
     supplies
   ) {
     const providerUpdated = {

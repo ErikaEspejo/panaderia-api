@@ -51,19 +51,19 @@ const Workers = sequelize.define(
     },
     totalDayHours: {
       type: DataTypes.DOUBLE(20, 2),
-      allowNull: false,
+      allowNull: true,
     },
     totalNightHours: {
       type: DataTypes.DOUBLE(20, 2),
-      allowNull: false,
+      allowNull: true,
     },
     totalHolidayDayHours: {
       type: DataTypes.DOUBLE(20, 2),
-      allowNull: false,
+      allowNull: true,
     },
     totalHolidayNightHours: {
       type: DataTypes.DOUBLE(20, 2),
-      allowNull: false,
+      allowNull: true,
     },
     salary: {
       type: DataTypes.DOUBLE(20, 2),

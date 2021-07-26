@@ -35,7 +35,7 @@ const validateNewUser = (req, res, next) => {
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
   );
   const regExpId = new RegExp(/^[a-zA-Z0-9_]*$/);
-  const regExpIdType = new RegExp(/^(C.C.|C.E.|P.A.|T.I.)$/);
+  const regExpIdType = new RegExp(/^(CC|CE|PA|TI|RC)$/);
 
   if (
     idType &&
@@ -83,7 +83,7 @@ const validateUserUpdated = (req, res, next) => {
   const regExpPassword = new RegExp(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
   );
-  const regExpIdType = new RegExp(/^(C.C.|C.E.|P.A.|T.I.)$/);
+  const regExpIdType = new RegExp(/^(CC|CE|PA|TI|RC)$/);
 
   if (idType && email && username && password) {
     if (username.length < 6) {

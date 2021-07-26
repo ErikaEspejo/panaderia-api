@@ -121,11 +121,11 @@ const update = async (req, res) => {
     entryDate,
     retreatDate,
     state,
-    totalDayHours,
-    totalNightHours,
-    totalHolidayDayHours,
-    totalHolidayNightHours,
-    salary,
+    totalDayHours = 0,
+    totalNightHours = 0,
+    totalHolidayDayHours = 0,
+    totalHolidayNightHours = 0,
+    salary = 0,
     risk,
   } = req.body;
 
@@ -150,7 +150,6 @@ const update = async (req, res) => {
       totalHolidayNightHours
     );
 
-    console.log("entre");
     const companyPayments = companyContributions(workerSalary, risk);
     const workerPayments = workerContributions(workerSalary);
     const workerUpdated = {

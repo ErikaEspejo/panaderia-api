@@ -40,7 +40,6 @@ const create = async (req, res) => {
     name,
     lastName,
     username,
-    state,
     position,
     email,
     password,
@@ -68,7 +67,6 @@ const create = async (req, res) => {
     name,
     lastName,
     username,
-    state,
     position,
     email,
     password: passwordHash,
@@ -79,6 +77,7 @@ const create = async (req, res) => {
       res.status(200).json(userCreated);
     })
     .catch((err) => {
+      console.log(err);
       res
         .status(400)
         .json({ message: locale.translate("errors.user.onCreate") });
@@ -88,22 +87,18 @@ const create = async (req, res) => {
 const update = async (req, res) => {
   await User.sync();
   const identificationNumber = req.params.identificationNumber;
-  const { idType, name, lastName, username, state, email, password, position } =
+  const { idType, name, lastName, username, email, password, position } =
     req.body;
 
   const salt = bcrypt.genSaltSync(config.saltRounds);
   const passwordHash = bcrypt.hashSync(password, salt);
 
-  if (
-    (idType,
-    name && lastName && username && email && password && position && state)
-  ) {
+  if (idType && name && lastName && username && email && password && position) {
     const user = {
       idType,
       name,
       lastName,
       username,
-      state,
       email,
       password: passwordHash,
       position,
@@ -119,7 +114,6 @@ const update = async (req, res) => {
           idType: user.idType,
           name: user.name,
           lastName: user.lastName,
-          state: user.state,
           email: user.email,
           username: user.username,
           password: user.password,
@@ -191,7 +185,7 @@ const getUser = async (req, res) => {
       "identificationNumber",
       "username",
       "position",
-      "state",
+      "email",
       "createdAt",
       "updatedAt",
     ],
