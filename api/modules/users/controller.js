@@ -21,6 +21,7 @@ const list = async (req, res) => {
       "username",
       "position",
       "state",
+      "email",
       "createdAt",
       "updatedAt",
     ],
@@ -212,7 +213,14 @@ const login = async (req, res) => {
 
   const userFound = await User.findOne({
     where: { username },
-    attributes: ["password", "username", "identificationNumber"],
+    attributes: [
+      "password",
+      "username",
+      "identificationNumber",
+      "position",
+      "name",
+      "lastName",
+    ],
   });
   if (userFound) {
     // eslint-disable-next-line no-underscore-dangle
@@ -234,7 +242,9 @@ const login = async (req, res) => {
             id: userId,
             username: userFound.username,
             name: userFound.name,
+            lastName: userFound.lastName,
             token: token,
+            position: userFound.position,
           },
           message: "ok",
         });

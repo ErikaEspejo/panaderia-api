@@ -9,13 +9,13 @@ router.use(logger);
 
 router
   .route("/")
-  .post(authenticator, create)
-  .get(authenticator, list)
-  .delete(authenticator, remove);
+  .post(/* authenticator, */ create)
+  .get(/* authenticator, */ list)
+  .delete(/* authenticator, */ remove);
 
 router //
   .route("/:id")
-  .put(authenticator, update)
-  .get(authenticator, getOne);
+  .put(/* authenticator, */ update)
+  .get(/* authenticator, */ getOne);
 
 module.exports = router;

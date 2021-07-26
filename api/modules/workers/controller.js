@@ -134,7 +134,6 @@ const update = async (req, res) => {
     lastName &&
     position &&
     entryDate &&
-    retreatDate &&
     state &&
     totalDayHours &&
     totalNightHours &&

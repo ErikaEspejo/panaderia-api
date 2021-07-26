@@ -49,7 +49,7 @@ const update = async (req, res) => {
   const id = req.params.id;
   const { product, cost, supplies, category } = req.body;
 
-  if (product && cost && supplies && category) {
+  if (product && cost && category) {
     const productUpdated = {
       product,
       cost,

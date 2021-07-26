@@ -6,7 +6,6 @@ const list = async (req, res) => {
   Supplies.findAll({
     include: [{ model: Providers }],
   }).then(async (supplies) => {
-    console.log(supplies);
     res.status(200).json({
       data: supplies,
     });

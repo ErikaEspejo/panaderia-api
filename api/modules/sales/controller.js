@@ -36,6 +36,7 @@ const list = async (req, res) => {
       "UserIdentificationNumber",
       "order",
       "totalValue",
+      "createdAt",
     ],
     include: [{ model: User }],
   }).then(async (or) => {
@@ -46,6 +47,7 @@ const list = async (req, res) => {
       const buyerSplitted = el.buyer.split(",");
       //Creacion y asignacion de valores en primer nivel *no modificados*
       const obj = {};
+      obj.createdAt = el.createdAt;
       obj.id = el.id;
       obj.buyer = {
         id: buyerSplitted[1],
