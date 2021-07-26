@@ -30,7 +30,7 @@ const Providers = sequelize.define(
       allowNull: false,
     },
     providerPhone: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     providerWeb: {
@@ -44,7 +44,7 @@ const Providers = sequelize.define(
       allowNull: false,
     },
     contactPhone: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
     },
     contactEmail: {
       type: DataTypes.STRING,

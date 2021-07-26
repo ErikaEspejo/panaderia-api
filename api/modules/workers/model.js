@@ -43,7 +43,7 @@ const Workers = sequelize.define(
     },
     retreatDate: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     state: {
       type: DataTypes.STRING,
