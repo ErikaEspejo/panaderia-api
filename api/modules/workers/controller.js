@@ -121,12 +121,12 @@ const update = async (req, res) => {
     entryDate,
     retreatDate,
     state,
-    totalDayHours = 0,
-    totalNightHours = 0,
-    totalHolidayDayHours = 0,
-    totalHolidayNightHours = 0,
-    salary = 0,
-    risk,
+    totalDayHours = "0",
+    totalNightHours = "0",
+    totalHolidayDayHours = "0",
+    totalHolidayNightHours = "0",
+    salary,
+    risk = 1,
   } = req.body;
 
   if (
@@ -135,12 +135,12 @@ const update = async (req, res) => {
     position &&
     entryDate &&
     state &&
-    totalDayHours &&
-    totalNightHours &&
-    totalHolidayDayHours &&
-    totalHolidayNightHours &&
-    salary &&
-    risk
+    totalDayHours.toString() &&
+    totalNightHours.toString() &&
+    totalHolidayDayHours.toString() &&
+    totalHolidayNightHours.toString() &&
+    salary.toString() &&
+    risk.toString()
   ) {
     const workerSalary = salaryCalculation(
       salary,
