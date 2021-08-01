@@ -14,6 +14,7 @@ const workers = require("./modules/workers/router");
 const supplies = require("./modules/supplies/router");
 const production = require("./modules/production/router");
 const sales = require("./modules/sales/router");
+const others = require("./modules/others/router");
 
 const { config } = require("../config");
 
@@ -35,5 +36,6 @@ router.use("/workers", workers);
 router.use("/supplies", supplies);
 router.use("/production", production);
 router.use("/sales", sales);
+router.use("/others", others);
 
 module.exports = router;
