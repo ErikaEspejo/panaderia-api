@@ -8,8 +8,8 @@ const decryptingOrder = (string) => {
   const order = orderTyped.map((el) => {
     const elementSplitted = el.split(",");
     return {
-      quantity: parseInt(elementSplitted[0]),
-      product: parseInt(elementSplitted[1]),
+      quantity: parseInt(elementSplitted[1]),
+      product: parseInt(elementSplitted[0]),
       cost: parseInt(elementSplitted[2]),
       totalPerProduct: parseInt(elementSplitted[3]),
     };
@@ -71,8 +71,8 @@ const list = async (req, res) => {
       const orderArray = productsById.map((el) => {
         //Creacion de objeto con id
         const arrayWithId = {
-          quantity: parseInt(el.split(",")[0]),
-          product: parseInt(el.split(",")[1]),
+          quantity: parseInt(el.split(",")[1]),
+          product: parseInt(el.split(",")[0]),
           cost: parseInt(el.split(",")[2]),
           costPerProduct: parseInt(el.split(",")[3]),
         };
